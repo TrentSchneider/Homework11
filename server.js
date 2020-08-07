@@ -23,6 +23,14 @@ app.get("/notes", function (req, res) {
 app.get("/api/notes", function (req, res) {
   return res.json(arrayData);
 });
+app.post("/api/notes", function (req, res) {});
+app.delete("/api/notes/:id", function (req, res) {
+  let deleteId = req.params.id;
+  let deleteObj = arrayData.find((data) => data.id == deleteId);
+  let deleteIndex = arrayData.indexOf(deleteObj);
+  arrayData.splice(deleteIndex, 1);
+  res.send(deleteObj);
+});
 
 // Listener
 app.listen(PORT, function () {

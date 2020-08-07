@@ -22,7 +22,6 @@ const saveNote = (note) => {
     url: "/api/notes",
     data: note,
     method: "POST",
-    dataType: "json",
     success: () => console.log("note added"),
   });
 };
@@ -30,8 +29,9 @@ const saveNote = (note) => {
 // A function for deleting a note from the db
 const deleteNote = (id) => {
   return $.ajax({
-    url: "api/notes/" + id,
+    url: "/api/notes/" + id,
     method: "DELETE",
+    success: () => console.log("Note ID " + id + " removed"),
   });
 };
 
