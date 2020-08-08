@@ -38,7 +38,6 @@ app.post("/api/notes", function (req, res) {
   idUpdate();
   return res.json(arrayData);
 });
-// https://stackoverflow.com/questions/53661683/matching-a-delete-request-to-a-json-object
 // route to delete objects from JSON based off of their ID
 app.delete("/api/notes/:id", function (req, res) {
   let deleteId = req.params.id;
