@@ -22,7 +22,7 @@ const saveNote = (note) => {
     url: "/api/notes",
     data: note,
     method: "POST",
-    success: () => console.log("note added"),
+    success: () => console.log("Note added"),
   });
 };
 
@@ -54,11 +54,9 @@ const renderActiveNote = () => {
 
 // Get the note data from the inputs, save it to the db and update the view
 const handleNoteSave = function () {
-  let tempArr = getNotes();
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
-    id: tempArr.length,
   };
 
   saveNote(newNote).then(() => {
