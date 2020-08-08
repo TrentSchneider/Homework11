@@ -23,7 +23,12 @@ app.get("/notes", function (req, res) {
 app.get("/api/notes", function (req, res) {
   return res.json(arrayData);
 });
-app.post("/api/notes", function (req, res) {});
+app.post("/api/notes", function (req, res) {
+  let newNote = req.body;
+  arrayData.push(newNote);
+  return res.json(arrayData);
+});
+// https://stackoverflow.com/questions/53661683/matching-a-delete-request-to-a-json-object
 app.delete("/api/notes/:id", function (req, res) {
   let deleteId = req.params.id;
   let deleteObj = arrayData.find((data) => data.id == deleteId);
